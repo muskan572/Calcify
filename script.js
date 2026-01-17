@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return;
       }
+      //to clear 
       if (value === "AC") {
         expression = "";
         output.value = "";
