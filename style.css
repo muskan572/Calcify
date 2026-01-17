@@ -1,34 +1,48 @@
+/* ---------- Global ---------- */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #eef3f8);
+  min-height: 100vh;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background: linear-gradient(135deg, #eef3f8, #f6f2ef);
   font-family: "Segoe UI", Tahoma, sans-serif;
 }
 
+/* ---------- Heading ---------- */
 h1 {
   font-size: 50px;
   color: #333333;
   text-align: center;
-  margin-bottom: 20px;
-  margin-top: 10px;
+  margin: 20px 0 15px;
 }
+
+/* ---------- Calculator Container ---------- */
 #container {
-  width: 30%;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 420px;
   padding: 20px;
-  border: solid #ccc;
+
   background-color: rgb(196, 251, 251);
+  border-radius: 18px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  border-radius: 15px;
+
   box-shadow:
     0 18px 40px rgba(0, 0, 0, 0.18),
     inset 0 2px 6px rgba(255, 255, 255, 0.6);
 }
 
+/* ---------- Display ---------- */
 #output {
   width: 100%;
   height: 55px;
@@ -45,41 +59,46 @@ h1 {
 
   border: none;
   border-radius: 14px;
+  outline: none;
 
   box-shadow:
     inset 0 4px 8px rgba(0, 0, 0, 0.15),
     inset 0 -2px 4px rgba(255, 255, 255, 0.7);
-
-  outline: none;
 }
+
 #output::placeholder {
   color: #9b9b9b;
-  font-weight: 500;
 }
-.ac {
-  background: #f4b6b6;
-  color: #fefefe;
-}
-.ac-row {
-  width: 100%; /* full width milegi */
+
+/* ---------- Rows ---------- */
+.row {
+  width: 100%;
   display: flex;
-  justify-content: flex-end; /* sirf AC right */
+  justify-content: center;
+  gap: 25px;
+  padding: 10px 0;
 }
 
-.ac:hover {
-  filter: brightness(0.95);
-}
-.ac:active {
-  transform: translateY(1px);
+/* AC row only */
+.ac-row {
+  justify-content: flex-end;
 }
 
+/* ---------- Buttons (Common) ---------- */
 button {
+  flex: 1;
+  min-width: 60px;
+
   border: none;
-  padding: 16px 24px;
+  padding: 16px 0;
   border-radius: 16px;
+
   font-size: 17px;
   font-weight: 600;
+  color: #ffffff;
+
   cursor: pointer;
+  touch-action: manipulation;
 
   box-shadow:
     0 8px 18px rgba(0, 0, 0, 0.18),
@@ -98,35 +117,57 @@ button:active {
   transform: translateY(1px);
 }
 
-.row {
-  display: flex;
-  justify-content: center;
-  gap: 25px;
-  padding: 10px;
-  margin-top: 10px;
+/* ---------- AC Button ---------- */
+.ac {
+  background: #f4b6b6;
+  color: #6b0f0f;
+  flex: 0 0 auto;
+  padding: 14px 26px;
 }
 
-.btn {
-  padding: 14px 28px;
-  border-radius: 12px;
-  border: none;
-  color: white;
-  font-weight: 600;
+.ac:hover {
+  filter: brightness(0.95);
 }
 
+/* ---------- Row-wise Colors ---------- */
 #first_row button {
   background: #e8b7b7;
-  color: #ffffff;
 }
+
 #second_row button {
   background: #ddb1b1;
-  color: #ffffff;
 }
+
 #third_row button {
   background: #d3b0b8;
-  color: #ffffff;
 }
+
 #fourth_row button {
   background: #c9b7ad;
-  color: #ffffff;
+}
+
+/* ---------- Responsive (Mobile) ---------- */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  #container {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  #output {
+    font-size: 22px;
+    height: 50px;
+  }
+
+  .row {
+    gap: 14px;
+  }
+
+  button {
+    font-size: 16px;
+    border-radius: 14px;
+  }
 }
