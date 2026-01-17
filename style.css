@@ -146,7 +146,7 @@ button:active {
   background: #c9b7ad;
 }
 
-/* ---------- Responsive (Mobile) ---------- */
+/* ---------- Responsive (Smartphone) ---------- */
 @media (max-width: 480px) {
   h1 {
     font-size: 32px;
